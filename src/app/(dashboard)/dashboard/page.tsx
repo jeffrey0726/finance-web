@@ -140,7 +140,7 @@ export default function DashboardPage() {
               <XAxis dataKey="month" tick={{ fill: "#7D8590", fontSize: 12 }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: "#7D8590", fontSize: 11 }} axisLine={false} tickLine={false}
                 tickFormatter={v => `$${(v / 1000).toFixed(0)}k`} />
-              <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`$${v.toLocaleString()}`, ""]} />
+              <Tooltip contentStyle={tooltipStyle} formatter={(v) => [`$${Number(v).toLocaleString()}`, ""]} />
               <Bar dataKey="收入" fill="#3FB950" radius={[4, 4, 0, 0]} />
               <Bar dataKey="支出" fill="#F85149" radius={[4, 4, 0, 0]} />
             </BarChart>
@@ -163,7 +163,7 @@ export default function DashboardPage() {
                     <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`$${v.toLocaleString()}`, ""]} />
+                <Tooltip contentStyle={tooltipStyle} formatter={(v) => [`$${Number(v).toLocaleString()}`, ""]} />
                 <Legend iconType="circle" iconSize={8}
                   formatter={(value) => <span style={{ color: "#7D8590", fontSize: "12px" }}>{value}</span>} />
               </PieChart>
